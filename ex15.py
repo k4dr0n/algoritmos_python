@@ -1,47 +1,46 @@
 #mais facil
+#Faça um Programa que peça os 3 lados de um triângulo. 
+#O programa deverá informar se os valores podem ser um triângulo. 
+#Indique, caso os lados formem um triângulo, se o mesmo é: equilátero, isósceles ou escaleno. 
 
-   a = float(input('Primeiro lado: '))
-    b = float(input('Segundo  lado: '))
-    c = float(input('Terceiro lado: '))
-    
-    # Testando se é triângulo
-    if (a + b < c) or (a + c < b) or (b + c < a):
-        print('Nao é um triangulo')
-    elif (a == b) and (a == c) :
-        print('Equilatero')
-    elif (a==b) or (a==c) or (b==c):
-        print('Isósceles')
-    else:
-        print('Escaleno')
+#Dicas:
+#Três lados formam um triângulo quando a soma de quaisquer dois lados for maior que o terceiro;
+#Triângulo Equilátero: três lados iguais;
+#Triângulo Isósceles: quaisquer dois lados iguais;
+#Triângulo Escaleno: três lados diferentes.
 
 
-
-
-# Validity of Triangle given sides
-
-# Function definition to check validity
-def is_valid_triangle(a,b,c):
-    if a+b>=c and b+c>=a and c+a>=b:
-        return True
+# Checar a validade dos dados de entrada
+def triangulo_valido(a,b,c):
+    if a>0 and b>0 and c>0:
+        if a+b>=c and b+c>=a and c+a>=b:
+            return True
+        else:
+            return False
     else:
         return False
-
-# Function definition for type
-def type_of_triangle(a,b,c):
+    
+# Classificador de triângulos
+def tipo_triangulo(a,b,c):
     if a==b and b==c:
-        print('Triangle is Equilateral.')
+        print("O triangulo e equilatero.")
     elif a==b or b==c or a==c:
-        print('Triangle is Isosceles.')
+        print("O triangulo e isosceles.")
     else:
-        print('Triangle is Scalane')
+        print("O triangulo e escaleno.")
 
-# Reading Three Sides
-side_a = float(input('Enter length of side a: '))
-side_b = float(input('Enter length of side b: '))
-side_c = float(input('Enter length of side c: '))
+# Leitura dos lados do triangulo
+lado_a = float(input("Primeiro lado: "))
+lado_b = float(input("Segundo  lado: "))
+lado_c = float(input("Terceiro lado: "))
 
-# Function call & making decision
-if is_valid_triangle(side_a, side_b, side_c):
-    type_of_triangle(side_a, side_b, side_c)
+# Teste de validade do triangulo e classificador
+if triangulo_valido(lado_a, lado_b, lado_c):
+    tipo_triangulo(lado_a, lado_b, lado_c)
 else:
-    print('Tringle is not possible from given sides.')
+    print("O Triangulo nao e possivel para os valores de entrada.")
+    print("Dica: Tres lados formam um triângulo quando  a soma de quaisquer dois lados for maior que o terceiro.")
+
+
+
+
