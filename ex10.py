@@ -41,3 +41,26 @@ print("Seu salario bruto e : %7.2f" % salariob)
 print("O valor de seu FGTS e de: %7.2f" % fgts)
 print("O sindicato vai te levar: %7.2f" % sind)
 print("Seu salario liquido e de: %7.2f" % salariol) 
+
+
+
+
+def relatorio_salario(horas_trabalhadas, valor_hora):
+  salario_bruto = salario(horas_trabalhadas, valor_hora)
+
+  irpf = 0.11 * salario_bruto
+  inss = 0.08 * salario_bruto
+  sind = 0.05 * salario_bruto
+
+  salario_liquido = salario_bruto - irpf - inss - sind
+
+  print("Salário por hora trabalhada:", valor_hora)
+  print("Número de horas trabalhadas no mês:", horas_trabalhadas)
+  print("------------------------------------------------")
+  print("Salário bruto:", salario_bruto)
+  print("(-) Imposto de Renda:", irpf)
+  print("(-) INSS:", inss)
+  print("(-) Sindicato:", sind)
+  print("(=) Salário Líquido:", salario_liquido)
+
+relatorio_salario(20, 10.5)
